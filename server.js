@@ -3,11 +3,7 @@ var http = require('http'),
     url = require('url'),
     port = 8080;
 
-var listingData;
-
-fs.readFile('listings.json', 'utf8', function(err, data) {
-  listingData = data;
-});
+var listingData, server;
 
 var requestHandler = function(request, response) {
   var parsedUrl = url.parse(request.url);
@@ -20,8 +16,13 @@ var requestHandler = function(request, response) {
   }
 };
 
-var server = http.createServer(requestHandler);
+fs.readFile('listings.json', 'utf8', function(err, data) {
+  listingData = data;
 
-server.listen(port, function() {
-  console.log('Server listening on: http://localhost:' + port);
+  server = http.createServer(requestHandler);
+
+  server.listen(port, function() {
+    console.log('Server listening on: http://localhost:' + port);
+  });
+
 });
