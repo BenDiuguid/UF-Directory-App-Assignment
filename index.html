@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/paper/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
   </head>
   <body ng-app="directoryApp">
@@ -22,10 +22,10 @@
                 <th>Building Name</th>
                 <th></th>
               </tr>
-              <tr ng-repeat="listing in listings | filter:searchFilterText" ng-click="showDetails($index)">
-                <td >{{listing.code}}</td>
+              <tr ng-repeat="listing in listings | filter:searchFilterText" ng-click="showDetails($index)" ng-class="{info: $index === selectedIndex}">
+                <td>{{listing.code}}</td>
                 <td>{{listing.name}}</td>
-                <td><button ng-click="deleteListing($index)">delete</button></td>
+                <td><button type="button" class="btn btn-danger" ng-click="deleteListing($index)">Delete</button></td>
               </tr>
             </table>
           </div>
@@ -53,7 +53,7 @@
               <label for="addListingLongitude">Longitude</label>
               <input type="number" ng-model="newListing.coordinates.longitude" id="addListingLongitude" class="form-control" placeholder="longitude">
             </div>
-            <button type="submit" class="btn btn-default">Submit</button>
+            <button type="submit" class="btn btn-success">Submit</button>
           </form>
 
         </div>
@@ -93,6 +93,10 @@
         </div>
       </div>
     </div>
+
+
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
