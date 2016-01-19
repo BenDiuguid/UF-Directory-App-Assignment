@@ -17,6 +17,7 @@ var findLibraryWest = function() {
      if(err) {
        throw err;
      }
+     console.log("\n\n\n findLibraryWest \n\n\n");
      console.log(listing);
    });
 };
@@ -26,11 +27,12 @@ var removeCable = function() {
     on cable TV. Since we live in the 21st century and most courses are now web based, go ahead
     and remove this listing from your database and log the document to the console.
    */
-   Listing.findOneAndDelete( { 'code':  'CABL' }, function(err, listing){
+   Listing.findOneAndRemove( { 'code':  'CABL' }, function(err, listing){
     if(err) {
        throw err;
      }
-     console.log("The listing ",listing," has been deleted");   
+     console.log("\n\n\n removeCable \n\n\n");
+     console.log("The listing ",listing," has been deleted");
    });
 };
 var updatePhelpsMemorial = function() {
@@ -38,13 +40,14 @@ var updatePhelpsMemorial = function() {
     Phelps Memorial Hospital Center's address is incorrect. Find the listing, update it, and then
     log the updated document to the console.
    */
-   Listing.findOneAndUpdate( { 'name':  'Phelps Memorial Hospital Center' },{$set: {'address':'idk'}}, function(err, listing){
+   Listing.findOneAndUpdate( { name:  'Phelps Laboratory' }, { $set: {address:'new Address'} }, function(err, listing){
     if(err) {
        throw err;
      }
-     console.log("The listing ",listing," has been updated");   
+     console.log("\n\n\n updatePhelpsMemorial \n\n\n");
+     console.log("The listing ",listing," has been updated");
    });
-   
+
 };
 var retrieveAllListings = function() {
   /*
@@ -54,7 +57,8 @@ var retrieveAllListings = function() {
         if(err) {
        throw err;
      }
-     console.log(listing); 
+     console.log("\n\n\n retrieveAllListings \n\n\n");
+     console.log(listing);
     });
 };
 
