@@ -26,20 +26,39 @@ var removeCable = function() {
     on cable TV. Since we live in the 21st century and most courses are now web based, go ahead
     and remove this listing from your database and log the document to the console.
    */
+   Listing.findOneAndDelete( { 'code':  'CABL' }, function(err, listing){
+    if(err) {
+       throw err;
+     }
+     console.log("The listing ",listing," has been deleted");   
+   });
 };
 var updatePhelpsMemorial = function() {
   /*
     Phelps Memorial Hospital Center's address is incorrect. Find the listing, update it, and then
     log the updated document to the console.
    */
+   Listing.findOneAndUpdate( { 'name':  'Phelps Memorial Hospital Center' },{$set: {'address':'idk'}}, function(err, listing){
+    if(err) {
+       throw err;
+     }
+     console.log("The listing ",listing," has been updated");   
+   });
+   
 };
 var retrieveAllListings = function() {
   /*
     Retrieve all listings in the database, and log them to the console.
    */
+    Listing.find(function(err, listing){
+        if(err) {
+       throw err;
+     }
+     console.log(listing); 
+    });
 };
 
 findLibraryWest();
-// removeCable();
-// updatePhelpsMemorial();
-// retrieveAllListings();
+removeCable();
+updatePhelpsMemorial();
+retrieveAllListings();
