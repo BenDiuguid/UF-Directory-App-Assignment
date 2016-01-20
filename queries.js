@@ -40,7 +40,7 @@ var updatePhelpsMemorial = function() {
     Phelps Memorial Hospital Center's address is incorrect. Find the listing, update it, and then
     log the updated document to the console.
    */
-   Listing.findOneAndUpdate( { name:  'Phelps Laboratory' }, { $set: {address:'new Address'} }, function(err, listing){
+   Listing.findOneAndUpdate( { name:  'Phelps Laboratory' }, { $set: {address:'10 Phelps Lab, Gainesville, FL 32611'} }, function(err, listing){
     if(err) {
        throw err;
      }
